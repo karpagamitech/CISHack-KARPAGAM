@@ -1,0 +1,11 @@
+{%extends 'base.html'%}
+{%block title%} HOME{% endblock%}
+{%block content%}
+{% if user.is_aunthenticated %}
+HI{{user.username}}
+<p><a href="{%url 'logout%}">logout</a> </p>
+{%else%}
+<p>you are not logged in</p>
+<a herf="{% url 'login' %}">login</a>
+{%endif%}
+{%endblock%}

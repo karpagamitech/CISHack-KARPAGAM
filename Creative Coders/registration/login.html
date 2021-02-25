@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>My Website</title>
+		<link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
+		<script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+        <!--<link rel="stylesheet" href="styles/debug.css">-->
+		<style>
+
+.center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: lightgrey;
+   color: white;
+   text-align: center;
+   padding: 4px;
+}
+
+		</style>
+	</head>
+	<body>
+
+		<!-- .hero -->
+		<section class="hero is-primary is-small">
+			<div class="hero-body">
+				<div class="container">
+                    <h1 class="title center has-text-white is-size-1"><bold>Learn them Easy</bold></h1>
+				</div>
+			</div>
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+                <div class="navbar-brand">
+
+                  <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                  </a>
+                </div>
+
+                <div id="navbarBasicExample" class="navbar-menu">
+                  <div class="navbar-start">
+                    <a class="navbar-item">
+                      <nav>
+                        <a href="C:\Users\DELL\Desktop\github\Project\index.html">Home</a>
+                        </nav>
+                    </a>
+
+                    <a class="navbar-item">
+                      <nav>
+                        <a href="C:\Users\DELL\Desktop\github\Project\aboutus.html">About us</a>
+                        </nav>
+                    </a>
+
+                    </div>
+                  </div>
+            </nav>
+		</section>
+
+
+        <section>
+            <div class="container">
+                <h1 class="title Center has-text-danger is-size-2 has-text-centered">
+                    <strong>Document to Voice</strong>
+                </h1>
+                <h1 class="Center has-text-centered is-size-4">
+                    Select a pdf/word file and converts it into voice message
+                </h1>
+            </div>
+        </section>
+<form method="POST" class="post-form" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+        <section class="center">
+            <!--<button class="button is-link is-light is-size-3">
+              <h1 class="is-size-3">
+              Select a document
+            </h1>-->
+            <input type="button" id="btnFileUpload" value="Select a document" />
+<span id="spnFilePath"></span>
+<input type="file" id="FileUpload1" style="display: none" />
+<script type="text/javascript">
+    window.onload = function () {
+        var fileupload = document.getElementById("FileUpload1");
+        var filePath = document.getElementById("spnFilePath");
+        var button = document.getElementById("btnFileUpload");
+        button.onclick = function () {
+            fileupload.click();
+        };
+        fileupload.onchange = function () {
+            var fileName = fileupload.value.split('\\')[fileupload.value.split('\\').length - 1];
+            filePath.innerHTML = "<b>Selected File: </b>" + fileName;
+        };
+    };
+</script>
+
+        </section>
+    </form>
+
+        <div class="footer">
+        <p class="has-text-black">
+          <strong>Learn them Easy</strong> &reg;- Your Voice Dictator
+        </p>
+      </div>
+	</body>
+</html>
