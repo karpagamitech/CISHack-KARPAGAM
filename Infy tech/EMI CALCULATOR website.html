@@ -1,0 +1,501 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="emi calculator.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        
+        <title>EMI CALCULATOR</title>
+        <!--<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">-->
+		<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+		<link href="http://pg.gaarsam.com//html/assets/bootstrap/css/bootstrap.css" media="screen" rel="stylesheet" type="text/css" >
+		<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
+		<script type="text/javascript" src="http://pg.gaarsam.com//html/assets/js/jquery-2.1.4.min.js"></script>
+		<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+		<script type="text/javascript" src="http://pg.gaarsam.com//html/assets/bootstrap/js/bootstrap.min.js"></script>
+		<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>-->
+		<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.0/jquery.validate.min.js"></script>-->
+		<script type="text/javascript" src="http://pg.gaarsam.com//html/assets/js/jquery.validate.min.js"></script>
+		<style>
+			.wrap { max-width: 980px; margin: 10px auto 0; }
+			#steps { margin: 80px 0 0 0 }
+			.commands { overflow: hidden; margin-top: 30px; }
+			.prev {float:left}
+            .next, .submit {float:right}
+			.error { color: #b33; }
+			#progress { position: relative; height: 5px; background-color: #eee; margin-bottom: 20px; }
+			#progress-complete { border: 0; position: absolute; height: 5px; min-width: 10px; background-color: #337ab7; transition: width .2s ease-in-out; }
+            body {      
+                background-color: #87cefa;          
+            } 
+            #center {
+                text-align:center;
+            }
+            h1{
+                font-family: serif; 
+                font-size: 300%;
+                color: black;
+            }
+            h2{
+                font-family: serif;
+                font-size: 200%;
+                color: black;
+            }
+            h3{
+                font-family: serif;
+                font-size: 125%;
+                color: black;
+            }
+            #left{
+                text-align: left;
+            }
+		</style>
+		<link rel="stylesheet" href="emi calculator.css">
+		<script src="jquery.formtowizard.js" type="text/javascript"></script>
+		<script>
+        $( function() {
+            var $HomeLoan = $( '#HomeLoan' );
+            $HomeLoan.validate({errorElement: 'em'});
+            $HomeLoan.formToWizard({
+                submitButton: 'SaveAccount',
+                nextBtnClass: 'btn btn-primary next',
+                prevBtnClass: 'btn btn-default prev',
+                buttonTag:    'button',
+                validateBeforeNext: function(form, step) {
+                    var stepIsValid = true;
+                    var validator = form.validate();
+                    $(':input', step).each( function(index) {
+                        var xy = validator.element(this);
+                        stepIsValid = stepIsValid && (typeof xy == 'undefined' || xy);
+                    });
+                    return stepIsValid;
+                },
+                progress: function (i, count) {
+                    $('#progress-complete').width(''+(i/count*100)+'%');
+                }
+            });
+        });
+		</script>
+    
+</head>
+<body style="font-family: 'Montserrat Light', sans-serif"; class="body;">
+    
+    <div>
+        <nav class="navbar navbar-light" style="background-color: #87cefa;">
+            <button class="btn btn-outline-success" type="submit">
+                <div id="navbarBasicExample" class="navbar-menu">
+                    <div class="navbar-end">
+                        <div class="navbar-item">
+                          <div class="buttons">
+                            <a class="button is-black">
+                              <strong>HOME</strong>
+                            </a>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </button>
+        </nav>
+    </div>
+
+    <div class="body";></div>
+        <div id= "center">
+            <h1>
+                <p>
+                </p>
+                <strong>EMI  CALCULATOR</strong>
+            </h1>
+        </div>
+        <div>
+            <p>
+
+
+            </p>
+        </div>
+        <section id="center">
+            <img src="data:image/jpeg;base64,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"        </section>
+        <div>
+            <p>
+
+
+
+            </p>
+        </div>
+        <div>
+            <p>
+
+
+
+            </p>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">
+                        <strong>
+
+                            Ready To Use EMI Calculator
+                        </strong>
+                    </h2>
+                    <h3>
+                        <p class="card-text">
+
+                            <p>I had promised myself that I would create a ready to use EMI calculator combining HTML, CSS &amp; JavaScript.</p>
+                    
+                    
+                            <p>Here it is! If you are a home-buyer &#8211; I really hope that you find it useful! </p>
+                    
+                    
+                            <p>In this case, I reused the JavaScript that I wrote earlier &amp; wrapped in under some HTML &amp; CSS. The HTML &amp; CSS bit was easy but extremely tedious. I wouldn&#8217;t get into the details just now.</p>
+                    
+                    
+                            <p>For now, enjoy the calculator.  I am also pasting the codes below the calculator! Feel free to use them &amp; play around. Though there is no compulsion &#8211; I would be really pleased if you would backlink your experiment to this site !</p>
+
+                        </p>
+                    </h3>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body"; id="center">
+                        <p class="card-text">
+                            <img src="data:image/jpeg;base64,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" class="rounded">
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+	<div class="jumbotron text-center">
+	</div>
+    <div>
+        <p>
+
+
+
+        </p>
+    </div>
+
+
+    <div class="body"; class="container">
+        <ul id="tabs" class="nav nav-pills nav-stacked col-md-2">
+        </ul>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">
+                            <strong>
+                          
+                                EMI
+                            </strong>
+                        </h2>
+                        <h3>
+                            <p class="card-text">
+
+                                <p>
+                                    <strong>
+                                        How much EMI you have to pay?
+                                    </strong>
+                                </p>
+                                <div class="tab-content col-md-10"></div>
+                                <div class="tab-pane" id="tab_b">
+                                    <script language="javascript" type="text/javascript">
+                                    function emi()
+                                    {
+                                            var P = document.formval.pr_amt.value; // pick the form input value..
+                                            var rate = document.formval.int_rate.value; // pick the form input value..
+                                            var n = document.formval.period.value; // pick the form input value..
+                                            var r = rate/(12*100); // to calculate rate percentage..
+                                            var prate = (P * r * Math.pow((1+r),n*12))/(Math.pow((1+r),n*12)-1); // to calculate compound interest..
+                                            var emi = Math.ceil(prate * 100) / 100; // to parse emi amount..
+                                    // to assign value in field1 as fixed upto two decimal..				
+                                            document.formval4.field1.value = ("Monthly EMI: "+"₹ "+emi.toFixed(0));
+                                    } 
+                                    </script>
+                                        <form name="formval" class="form-horizontal col-md-8" style="font-size:12px;">
+                                            <div class="form-group">
+                                                <label for="input" class="col-sm-4 control-label">Loan Amount</label>
+                                                <div class="col-sm-8">
+                                                <div class="input-group">
+                                                <span class="input-group-addon">₹</span>
+                                                <input type="text" class="form-control input-sm" id="idLoanAmount" name="pr_amt" placeholder="Enter Loan Amount">
+                                                </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="input" class="col-sm-4 control-label">Loan Tenure</label>
+                                                <div class="col-sm-8">
+                                                <input type="text" class="form-control input-sm" id="idLoanTenure" placeholder="(in years)" name="period">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="input" class="col-sm-4 control-label">Rate of Interest</label>
+                                                <div class="col-sm-8">
+                                                <div class="input-group">
+                                                <input type="text" class="form-control input-sm" id="idROI" name="int_rate">
+                                                <span class="input-group-addon">%</span>
+                                                </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-offset-4 col-sm-12">
+                                                <button type="button" name="calculate" value="Calculate" onclick="emi()" class="btn btn-primary">Calculate EMI</button>
+                                                <button type="reset" class="btn btn-link">Reset All</button>
+                                                </div>
+
+                                        </form>
+                                        <form name="formval4" class="form-horizontal col-md-4" style="font-size:12px;">
+                                            <div class="form-group">
+                                                <output class="col-sm-12" name="field1" style="font-size:20px; font-weight:bold; font-family:Roboto;"></output>
+                                            </div>
+                                    	</form>
+                                </div>
+                            </p>
+                            <p>
+
+                                <img src="data:image/png;base64,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" class="rounded">                        
+                            </p>
+                        </h3>    
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">
+                            <strong>
+
+                                LOAN ELIGIBILITY
+                            </strong>
+                        </h2>
+                        <h3>
+                            <p class="card-text">
+
+                                <p>
+                                    
+                                    <strong>
+                                        How much loan you are eligible for?
+                                    </strong>
+                                </p>
+                                <div class="tab-pane active" id="tab_a">
+                                <script language="javascript" type="text/javascript">
+                                function eligiable()
+                                {
+                                        var P1 = document.formval2.pr_amt2.value; // pick the form input value..
+                                        var rate1 = document.formval2.int_rate2.value; // pick the form input value..
+                                        var n1 = document.formval2.period2.value; // pick the form input value..
+                                        var r1 = rate1/(12*100); // to calculate rate percentage..
+                                        var prate1 = (P1 * r1 * Math.pow((1+r1),n1*12))/(Math.pow((1+r1),n1*12)-1); // to calculate compound interest..
+                                        var emi1 = Math.ceil(prate1 * 100) / 100; // to parse emi amount..
+                                        var existing = document.formval2.ExLoan.value;
+                                        var existingLoan=(existing-(existing*60/100));
+                                        var income1 = document.formval2.NetIncome.value;
+                                        if (income1<=14999){
+                                        var incomere=((income1)*40/100)-existingLoan;
+                                        } else if (income1<=29999){
+                                        var incomere=((income1)*45/100)-existingLoan;
+				                        } else if (income1>=30000){
+				                        var incomere=((income1)*50/100)-existingLoan;
+				                        }
+				                        var incomereq=Math.floor(incomere / emi1 * P1);
+				                        var prate2 = (incomereq * r1 * Math.pow((1+r1),n1*12))/(Math.pow((1+r1),n1*12)-1); // to calculate compound interest2..
+                                        var emi2 = Math.ceil((prate2) * 100) / 100; // to parse emi2 amount..   //Check again Reminder
+                                        // to assign value in field1 as fixed upto two decimal..
+                                        if (incomereq > P1) {
+				                        document.formval3.field13.value = ("You are Eligible for this loan ");
+				                        document.formval3.field11.value = (("₹ "+P1+" at EMI "+"₹ "+emi1.toFixed(0)));
+				                        document.formval3.field12.value = ("You are Eligible for a maximum loan of "+("₹ "+incomereq+" at EMI "+"₹ "+emi2.toFixed(0)));
+				                        } else {
+				                        document.formval3.field13.value = ("You are not Eligible for this loan");
+				                        document.formval3.field11.value = ("");
+				                        document.formval3.field12.value = ("You are Eligible for a maximum loan of "+("₹ "+incomereq+" at EMI "+"₹ "+emi2.toFixed(0)));
+				                        }
+				
+                                //to assign value in field2.. 
+                                } 
+                                </script>  
+                                        <form name="formval2" class="form-horizontal col-md-8" style="font-size:12px;">
+                                            <div class="form-group">
+                                                <label for="input" class="col-sm-4 control-label">Home Loan Required:</label>
+                                                <div class="col-sm-8">
+                                                <div class="input-group">
+                                                <span class="input-group-addon">₹</span>
+                                                <input type="number" class="form-control input-sm" id="input" name="pr_amt2" placeholder="Enter Loan Amount">
+                                                </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="input" class="col-sm-4 control-label">Net income per month</label>
+                                                <div class="col-sm-8">
+                                                <div class="input-group">
+                                                <span class="input-group-addon">₹</span>
+                                                <input type="number" class="form-control input-sm" id="input" name="NetIncome" placeholder="Excluding LTA and Medical allowances">
+                                                </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="input" class="col-sm-4 control-label" >Existing loan commitments</label>
+                                                <div class="col-sm-8">
+                                                <div class="input-group">
+                                                <span class="input-group-addon">₹</span>
+                                                <input type="number" class="form-control input-sm" id="input" Name="ExLoan" placeholder="(per month)">
+                                                </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="input" class="col-sm-4 control-label">Loan Tenure</label>
+                                                <div class="col-sm-8">
+                                                <input type="number" class="form-control input-sm" id="input" name="period2" placeholder="(in years)">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="input" class="col-sm-4 control-label">Rate of Interest</label>
+                                                <div class="col-sm-8">
+                                                <div class="input-group">
+                                                <input type="number" class="form-control input-sm" id="input" disabled value="9.5" name="int_rate2">
+                                                <span class="input-group-addon">%</span>
+                                                </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-offset-4 col-sm-12">
+                                                <button type="button" class="btn btn-primary" onclick="eligiable()">Check Eligibility</button>
+                                                <button type="reset" class="btn btn-link">Reset All</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <form name="formval3" class="form-horizontal col-md-4" style="font-size:12px;">
+                                            <div class="form-group">	
+                                                <output class="col-sm-12" name="field13" style="font-size:20px; font-weight:bold; font-family:Roboto;"></output>
+                                                <output class="col-sm-12" name="field11" style="font-size:15px; font-family:Roboto;"></output>
+                                            </div>
+                                            <div class="form-group">
+                                                <output class="col-sm-12" name="field12" style="font-size:17px; font-family:Roboto"></output>
+                                            </div>	
+                                        </form>
+                                </div>        
+                            </p>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div>
+            <p>
+
+
+            </p>
+        </div>
+        <div class="tile is-parent is-6">
+            <article class="tile is-child box">
+                <h2 class="title">
+                  <strong>
+
+                    FAQS : EMI Calculator Code
+                  </strong>
+                </h2>
+                <div>
+                  <h3>
+                    <p>
+
+                        <p>
+                            <strong>
+                                What is the formula to calculate EMI ?
+                            </strong>
+                        </p>
+                        <p>
+                            The mathematical formula for calculating EMI is:<br/> EMI = [P x R x (1+R)^N]/[(1+R)^N-1],<br/> where P stands for the loan amount or principal, R is the interest rate per month [if the interest rate per year is 11%, then the rate of interest will be 11/(12 x 100)], and N is the number of monthly installments.
+                        </p>
+                        <p>
+                            <strong>
+                                How is EMI calculated using JavaScripts code?
+                            </strong>
+
+                        </p>
+                        <p>
+                            The best way to calculate EMI in JavaScripts would be by using the Math.pow() method.
+                        </p>
+                    </p>
+                  </h3>
+                </div>
+            </article>
+        </div>
+    </div>
+    <div>
+        <p>
+
+
+        </p>
+    </div>
+    <div>
+        <p>
+
+
+        </p>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body"; id="center">
+                    <p class="card-text">
+                        <img src="data:image/jpeg;base64,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" class="rounded">
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body"; id="center">
+                    <p class="card-text">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGbOvw12qmxc8Ya8R5oyTIZ6xmSKN5DD_cgQ&usqp=CAU" class="rounded">
+                    </p>
+                </div>
+            </div>
+        </div>    
+    </div>
+    <div>
+        <p>
+
+
+        </p>
+    </div>
+    <div>
+        <p>
+
+
+        </p>
+    </div>
+    <footer id="colophon" class="site-footer">
+
+        <div class="site-footer-inner">
+
+                    <div class="footer-widget;" class="text-center">
+                        <aside id="wpcw_contact-4" class="widget wpcw-widgets wpcw-widget-contact"><h4 class="widget-title">Contact Us<br></h4>
+                            <div>
+                                <h3>Infytech</h3>
+                            </div>
+                        </aside>   
+		            </div>
+            
+	
+		</div><!-- .site-footer-inner -->
+
+	</footer><!-- #colophon -->
+</body>
+</html>                             
+
+
