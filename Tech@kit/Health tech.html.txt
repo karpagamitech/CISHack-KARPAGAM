@@ -1,0 +1,222 @@
+Source code:
+
+<!DOCTYPE html>
+<html style="background-color:rgb(0, 174, 255)">
+ 
+
+  
+  <head>
+    <meta charset="utf">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title >HEALTH TECH</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+  </head>
+
+  
+  <body  >
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://signal.org/en/.css"></a>
+            <img src="https://edps.europa.eu/sites/default/files/picture/health2.png" width="212" height="121
+            ">
+          </a>
+      
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+        
+        
+        
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+              <strong><b style="fontsize:20px" >HEALTH TECH</b></strong>
+            <a class="navbar-item">
+              Get signal
+            </a>
+      
+            <a class="navbar-item">
+              support
+            </a>
+            <a class="navbar-item">
+                Blog
+              </a>
+              <a class="navbar-item">
+                developers
+              </a>
+              <a class="navbar-item">
+                careers
+              </a>
+      
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">
+                more
+              </a>
+      
+              <div class="navbar-dropdown">
+                <a class="navbar-item">
+                  About
+                </a>
+                <a class="navbar-item">
+                  use app
+                </a>
+                <a class="navbar-item">
+                  Contact
+                </a>
+                <hr class="navbar-divider">
+                <a class="navbar-item">
+                  Help
+                </a>
+                
+              </div>
+            </div>
+          </div>
+      
+          
+                  
+
+ 
+
+ 
+</html>
+                </a>
+                
+                </a>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+     <html>
+                    <style>
+                      /add full-width input fields/
+                       
+                      input[type=text],
+                      input[type=password] {
+                          width: 50%;
+                          padding: 12px 20px;
+                          margin: 8px 0;
+                          display: inline-block;
+                          border: 2px solid #ccc;
+                          box-sizing: border-box;
+                      }
+                      /* set a style for all buttons*/
+                       
+                      button {
+                          background-color: rgb(0, 9, 128);
+                          color: white;
+                          padding: 15px 20px;
+                          margin: 8px 0;
+                          cursor: pointer;
+                          width: 100%;
+                      }
+                      /set styles for the cancel button/
+                       
+                      .cancelbtn {
+                          padding: 15px 20px;
+                          background-color: rgb(0, 9, 128);
+                      }
+                      /float cancel and signup buttons and add an equal width/
+                       
+                      .cancelbtn,
+                      .signupbtn {
+                          float: left;
+                          width: 50%;
+                      }
+                      /add padding to container elements/
+                       
+                      .container {
+                          padding: 16px;
+                      }
+                      /clear floats/
+                       
+                      .clearfix::after {
+                          content: "";
+                          clear: both;
+                          display: table;
+                      }
+                      /*styles for cancel button and signup button 
+                        on extra small screens*/
+                       
+                      @media screen and (max-width: 300px) {
+                          .cancelbtn,
+                          .signupbtn {
+                              width: 100%;
+                          }
+                      }
+                  </style>
+                  
+
+                            
+            
+                  <body>
+                    <html>
+                      <head>
+                      <meta name="viewport" content="width=device-width, initial-scale=1">
+                      <style> 
+                      input[type=text] {
+                        width: 130px;
+                        box-sizing: border-box;
+                        border: 2px solid #ccc;
+                        border-radius: 4px;
+                        font-size: 16px;
+                        background-color: white;
+                        background-image: url('searchicon.png');
+                        background-position: 10px 10px; 
+                        background-repeat: no-repeat;
+                        padding: 12px 20px 12px 40px;
+                        -webkit-transition: width 0.4s ease-in-out;
+                        transition: width 0.4s ease-in-out;
+                      }
+                      
+                      input[type=text]:focus {
+                        width: 100%;
+                      }
+                      </style>
+                      </head>
+                      <body>
+                      
+                      <p>search :</p>
+                      
+                      <form>
+                        <input type="text" name="search" placeholder="Search..">
+                      </form>
+                      
+                      </body>
+                      </html>
+                      
+                        <form action="action_page.php">
+                    
+                      
+                          <label for="country">Country</label>
+                          <select id="country" name="country">
+                            <option value="australia">Australia</option>
+                            <option value="canada">Canada</option>
+                            <option value="usa">USA</option>
+                          </select>
+                          <b><label for="hospitals">hospitals</label></b>
+                          <select id="hospitals" name="hospitals">
+                            <option value="SMS">SMS</option>
+                            <option value="SCC">SCC</option>
+                            <option value="PRS">PRS</option>
+                          </select>
+                          
+                      
+                          
+                      
+                          
+                        </form>
+                    
+                        
+                              
+                          </div>
+                      </form>
+                    </body>
+  
+  </body>
+</html>
+
+
